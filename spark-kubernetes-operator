@@ -1,1 +1,384 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: '3'
+    meta.helm.sh/release-name: spark-operator
+    meta.helm.sh/release-namespace: dev-spark-operator
+  resourceVersion: '355751492'
+  name: spark-kubernetes-operator
+  uid: 9e061a25-895e-4766-9930-7e5090bd53b3
+  creationTimestamp: '2025-07-23T15:09:43Z'
+  generation: 3
+  managedFields:
+    - manager: helm
+      operation: Update
+      apiVersion: apps/v1
+      time: '2025-07-23T15:09:43Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:meta.helm.sh/release-name': {}
+            'f:meta.helm.sh/release-namespace': {}
+          'f:labels':
+            .: {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/managed-by': {}
+            'f:app.kubernetes.io/name': {}
+            'f:app.kubernetes.io/version': {}
+            'f:helm.sh/chart': {}
+            'f:spark-role': {}
+        'f:spec':
+          'f:progressDeadlineSeconds': {}
+          'f:replicas': {}
+          'f:revisionHistoryLimit': {}
+          'f:selector': {}
+          'f:strategy':
+            'f:type': {}
+          'f:template':
+            'f:metadata':
+              'f:annotations':
+                .: {}
+                'f:kubectl.kubernetes.io/default-container': {}
+              'f:labels':
+                .: {}
+                'f:app.kubernetes.io/component': {}
+                'f:app.kubernetes.io/name': {}
+                'f:spark-role': {}
+            'f:spec':
+              'f:volumes':
+                .: {}
+                'k:{"name":"logs-volume"}':
+                  .: {}
+                  'f:emptyDir': {}
+                  'f:name': {}
+                'k:{"name":"spark-operator-config-volume"}':
+                  .: {}
+                  'f:configMap':
+                    .: {}
+                    'f:defaultMode': {}
+                    'f:name': {}
+                  'f:name': {}
+              'f:containers':
+                'k:{"name":"spark-kubernetes-operator"}':
+                  'f:image': {}
+                  'f:volumeMounts':
+                    .: {}
+                    'k:{"mountPath":"/opt/spark-operator/conf"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                    'k:{"mountPath":"/opt/spark-operator/logs"}':
+                      .: {}
+                      'f:mountPath': {}
+                      'f:name': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources':
+                    .: {}
+                    'f:limits':
+                      .: {}
+                      'f:cpu': {}
+                      'f:ephemeral-storage': {}
+                      'f:memory': {}
+                    'f:requests':
+                      .: {}
+                      'f:cpu': {}
+                      'f:ephemeral-storage': {}
+                      'f:memory': {}
+                  'f:command': {}
+                  'f:livenessProbe':
+                    .: {}
+                    'f:failureThreshold': {}
+                    'f:httpGet':
+                      .: {}
+                      'f:path': {}
+                      'f:port': {}
+                      'f:scheme': {}
+                    'f:initialDelaySeconds': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:timeoutSeconds': {}
+                  'f:env':
+                    'k:{"name":"LOG_CONFIG"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"OPERATOR_NAMESPACE"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:fieldRef': {}
+                    'k:{"name":"POD_IP"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:fieldRef': {}
+                    'k:{"name":"OPERATOR_JAVA_OPTS"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"POD_NAME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:fieldRef': {}
+                    .: {}
+                    'k:{"name":"HOST_IP"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:fieldRef': {}
+                    'k:{"name":"SPARK_USER"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"OPERATOR_NAME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                  'f:readinessProbe':
+                    .: {}
+                    'f:failureThreshold': {}
+                    'f:httpGet':
+                      .: {}
+                      'f:path': {}
+                      'f:port': {}
+                      'f:scheme': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:timeoutSeconds': {}
+                  'f:securityContext':
+                    .: {}
+                    'f:allowPrivilegeEscalation': {}
+                    'f:capabilities':
+                      .: {}
+                      'f:drop': {}
+                    'f:runAsNonRoot': {}
+                    'f:runAsUser': {}
+                    'f:seccompProfile':
+                      .: {}
+                      'f:type': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":19091,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:name': {}
+                      'f:protocol': {}
+                  'f:name': {}
+              'f:dnsPolicy': {}
+              'f:serviceAccount': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:terminationGracePeriodSeconds': {}
+              'f:serviceAccountName': {}
+              'f:securityContext': {}
+    - manager: kubectl-rollout
+      operation: Update
+      apiVersion: apps/v1
+      time: '2025-07-24T08:03:38Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:template':
+            'f:metadata':
+              'f:annotations':
+                'f:kubectl.kubernetes.io/restartedAt': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2025-07-24T08:13:39Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            'f:deployment.kubernetes.io/revision': {}
+        'f:status':
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"ReplicaFailure"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:observedGeneration': {}
+          'f:unavailableReplicas': {}
+      subresource: status
+  namespace: dev-spark-operator
+  labels:
+    app.kubernetes.io/component: operator-deployment
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: spark-kubernetes-operator
+    app.kubernetes.io/version: 0.5.0-SNAPSHOT
+    helm.sh/chart: spark-kubernetes-operator-1.3.0-dev
+    spark-role: operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: operator-deployment
+      app.kubernetes.io/name: spark-kubernetes-operator
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/component: operator-deployment
+        app.kubernetes.io/name: spark-kubernetes-operator
+        spark-role: operator
+      annotations:
+        kubectl.kubernetes.io/default-container: spark-kubernetes-operator
+        kubectl.kubernetes.io/restartedAt: '2025-07-24T08:03:38Z'
+    spec:
+      restartPolicy: Always
+      serviceAccountName: spark-operator
+      schedulerName: default-scheduler
+      terminationGracePeriodSeconds: 30
+      securityContext: {}
+      containers:
+        - resources:
+            limits:
+              cpu: '1'
+              ephemeral-storage: 2Gi
+              memory: 2Gi
+            requests:
+              cpu: '1'
+              ephemeral-storage: 2Gi
+              memory: 2Gi
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: probe-port
+              scheme: HTTP
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 30
+          terminationMessagePath: /dev/termination-log
+          name: spark-kubernetes-operator
+          command:
+            - ./docker-entrypoint.sh
+            - operator
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: probe-port
+              scheme: HTTP
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
+            periodSeconds: 10
+            successThreshold: 1
+            failureThreshold: 3
+          env:
+            - name: OPERATOR_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+            - name: HOST_IP
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: status.hostIP
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: status.podIP
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: spark-kubernetes-operator
+            - name: LOG_CONFIG
+              value: '-Dlog4j.configurationFile=/opt/spark-operator/conf/log4j2.properties'
+            - name: OPERATOR_JAVA_OPTS
+              value: '-Dfile.encoding=UTF8 -XX:+ExitOnOutOfMemoryError -XX:+UseParallelGC -XX:InitialRAMPercentage=80 -XX:MaxRAMPercentage=80'
+            - name: SPARK_USER
+              value: spark
+          securityContext:
+            capabilities:
+              drop:
+                - ALL
+            runAsUser: 1001580000
+            runAsNonRoot: true
+            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
+          ports:
+            - name: probe-port
+              containerPort: 19091
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: spark-operator-config-volume
+              mountPath: /opt/spark-operator/conf
+            - name: logs-volume
+              mountPath: /opt/spark-operator/logs
+          terminationMessagePolicy: File
+          image: 'apache/spark-kubernetes-operator:0.5.0-SNAPSHOT'
+      serviceAccount: spark-operator
+      volumes:
+        - name: spark-operator-config-volume
+          configMap:
+            name: spark-kubernetes-operator-configuration
+            defaultMode: 420
+        - name: logs-volume
+          emptyDir: {}
+      dnsPolicy: ClusterFirst
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+status:
+  observedGeneration: 3
+  unavailableReplicas: 1
+  conditions:
+    - type: Available
+      status: 'False'
+      lastUpdateTime: '2025-07-23T15:09:43Z'
+      lastTransitionTime: '2025-07-23T15:09:43Z'
+      reason: MinimumReplicasUnavailable
+      message: Deployment does not have minimum availability.
+    - type: ReplicaFailure
+      status: 'True'
+      lastUpdateTime: '2025-07-23T15:09:43Z'
+      lastTransitionTime: '2025-07-23T15:09:43Z'
+      reason: FailedCreate
+      message: 'pods "spark-kubernetes-operator-7d5d766cd7-" is forbidden: error creating provider for SCC spark-operator-scc in namespace dev-spark-operator: MustRunAs requires a UID'
+    - type: Progressing
+      status: 'False'
+      lastUpdateTime: '2025-07-24T08:13:39Z'
+      lastTransitionTime: '2025-07-24T08:13:39Z'
+      reason: ProgressDeadlineExceeded
+      message: ReplicaSet "spark-kubernetes-operator-54b5946665" has timed out progressing.
 
